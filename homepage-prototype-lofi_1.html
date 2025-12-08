@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kabbalah Centre - Homepage Prototype (Low-Fi)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid #000000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a.external {
+            color: #666666;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #000000;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .tier-toggle {
+            position: fixed;
+            top: 80px;
+            right: 40px;
+            background: #000000;
+            color: #ffffff;
+            padding: 20px;
+            border: 2px solid #000000;
+            z-index: 1000;
+        }
+
+        .tier-toggle h3 {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .tier-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tier-btn {
+            padding: 10px 15px;
+            border: 2px solid #ffffff;
+            background: transparent;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .tier-btn.active {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+
+        /* Content Zones */
+        .zone {
+            margin-bottom: 60px;
+            padding: 30px;
+            border: 2px solid #000000;
+            display: none;
+        }
+
+        .zone.visible {
+            display: block;
+        }
+
+        .zone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #000000;
+        }
+
+        .zone-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .zone-meta {
+            font-size: 11px;
+            color: #666666;
+        }
+
+        .zone-content {
+            min-height: 100px;
+        }
+
+        /* Placeholder boxes */
+        .placeholder {
+            background: #cccccc;
+            border: 1px solid #999999;
+            padding: 40px;
+            text-align: center;
+            color: #666666;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+
+        .placeholder.large {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder.medium {
+            min-height: 200px;
+        }
+
+        .placeholder.small {
+            min-height: 120px;
+        }
+
+        /* Grid layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            border: 2px solid #000000;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 12px;
+            color: #333333;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            text-decoration: none;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #000000;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .tier-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .tier-indicator.free {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+        }
+
+        .tier-indicator.community {
+            background: #666666;
+        }
+
+        .tier-indicator.premium {
+            background: #000000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-3, .grid-2, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .tier-toggle {
+                position: static;
+                margin: 20px;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: #ffffff;
+                border-left: 2px solid #000000;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 30px 30px;
+                gap: 20px;
+                transition: right 0.3s ease;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav a {
+                font-size: 16px;
+                width: 100%;
+                padding: 10px 0;
+                border-bottom: 1px solid #cccccc;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .zone {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tier Toggle Control -->
+    <div class="tier-toggle">
+        <h3>VIEW AS TIER:</h3>
+        <div class="tier-buttons">
+            <button class="tier-btn active" data-tier="free">FREE (Logged Out)</button>
+            <button class="tier-btn" data-tier="community">COMMUNITY ($11/mo)</button>
+            <button class="tier-btn" data-tier="premium">PREMIUM ($42/mo)</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Kabbalah Centre</div>
+        
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- FREE Tier Navigation -->
+        <nav id="nav-free" class="tier-nav">
+            <a href="#">Topics</a>
+            <a href="#">Get Started</a>
+            <a href="#">Live Learning</a>
+            <a href="#">My Library</a>
+            <a href="#">Teachers</a>
+            <a href="#">Guidance</a>
+            <a href="#">Membership</a>
+            <a href="#">Locations</a>
+            <a href="#">Our Sites</a>
+            <a href="#">Sign Up</a>
+        </nav>
+
+        <!-- COMMUNITY Tier Navigation -->
+        <nav id="nav-community" class="tier-nav" style="display: none;">
+            <a href="#">Topics</a>
+            <a href="#">Events & Classes</a>
+            <a href="#">Live Learning</a>
+            <a href="#">My Library</a>
+            <a href="#">Teachers</a>
+            <a href="#">Guidance</a>
+            <a href="#">Membership</a>
+            <a href="#">Locations</a>
+            <a href="#">Our Sites</a>
+            <a href="#">Sign-in / My Account</a>
+        </nav>
+
+        <!-- PREMIUM Tier Navigation -->
+        <nav id="nav-premium" class="tier-nav" style="display: none;">
+            <a href="#">Topics</a>
+            <a href="#">Events & Classes</a>
+            <a href="#">Live Learning</a>
+            <a href="#">My Library</a>
+            <a href="#">Teachers</a>
+            <a href="#">Guidance</a>
+            <a href="#">Membership</a>
+            <a href="#">Locations</a>
+            <a href="#">Our Sites</a>
+            <a href="#">Sign-in / My Account</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <!-- ZONE 1: Hero / Featured Content -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 1: Hero / Featured Content</div>
+                    <div class="zone-meta">Priority: Critical | All Tiers</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div class="placeholder large">
+                    <div>
+                        <div style="margin-bottom: 20px;">Hero Image Placeholder</div>
+                        <h1 style="color: #000; margin-bottom: 15px;">Featured Content Headline</h1>
+                        <p style="color: #333;">Subheadline or description text goes here</p>
+                        <div style="margin-top: 20px;">
+                            <button class="btn">Primary CTA</button>
+                            <button class="btn btn-outline">Secondary CTA</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 2: Personalized Welcome (Logged In) -->
+        <div class="zone" data-tiers="community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 2: Personalized Welcome</div>
+                    <div class="zone-meta">Priority: High | Logged In Only</div>
+                </div>
+                <div class="tier-indicator community">COMMUNITY+</div>
+            </div>
+            <div class="zone-content">
+                <div style="padding: 20px; border: 2px solid #000;">
+                    <h2 style="margin-bottom: 10px; font-size: 18px;">Welcome back, [User Name]</h2>
+                    <p style="font-size: 12px; color: #333;">Continue your spiritual journey where you left off</p>
+                    <div class="grid-2" style="margin-top: 20px;">
+                        <div class="placeholder small">Last Viewed Course</div>
+                        <div class="placeholder small">Recommended for You</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 3: My Library (Quick Access) -->
+        <div class="zone" data-tiers="community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 3: My Library (Quick Access)</div>
+                    <div class="zone-meta">Priority: CRITICAL | Logged In | Addresses #1 Support Issue</div>
+                </div>
+                <div class="tier-indicator community">COMMUNITY+</div>
+            </div>
+            <div class="zone-content">
+                <h3 style="margin-bottom: 15px; font-size: 16px;">Continue Learning</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="placeholder medium">Course Thumbnail</div>
+                        <div class="card-title">Course Title</div>
+                        <div class="card-text">Progress: 60% complete</div>
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Continue</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Course Thumbnail</div>
+                        <div class="card-title">Course Title</div>
+                        <div class="card-text">Progress: 25% complete</div>
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Continue</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Course Thumbnail</div>
+                        <div class="card-title">Course Title</div>
+                        <div class="card-text">Not started</div>
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Start</button>
+                    </div>
+                </div>
+                <button class="btn btn-outline">View Full Library →</button>
+            </div>
+        </div>
+
+        <!-- ZONE 4: Live Streams (Current/Upcoming) -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 4: Live Streams</div>
+                    <div class="zone-meta">Priority: CRITICAL | #1 Traffic Driver</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="placeholder medium">LIVE NOW</div>
+                        <div class="card-title">Shabbat Connection</div>
+                        <div class="card-text">Friday Evening Service<br>Started 15 min ago</div>
+                        <button class="btn" style="margin-top: 10px; width: 100%;">Join Stream</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Upcoming</div>
+                        <div class="card-title">Weekly Kabbalah Class</div>
+                        <div class="card-text">With Michael Berg<br>Tomorrow at 7:00 PM EST</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">Set Reminder</button>
+                    </div>
+                </div>
+                <button class="btn btn-outline">View All Live Streams →</button>
+            </div>
+        </div>
+
+        <!-- ZONE 5: Shabbat Content (Premium Only) -->
+        <div class="zone" data-tiers="premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 5: Premium Shabbat Content</div>
+                    <div class="zone-meta">Priority: High | Premium Only</div>
+                </div>
+                <div class="tier-indicator premium">PREMIUM ONLY</div>
+            </div>
+            <div class="zone-content">
+                <div class="placeholder large">
+                    <div>
+                        <h3 style="color: #000; margin-bottom: 15px;">This Week's Shabbat</h3>
+                        <p>Exclusive teachings, prayers, and connections for Premium members</p>
+                        <button class="btn" style="margin-top: 20px;">Access Shabbat Content</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 6: Energy of the Week -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 6: Energy of the Week</div>
+                    <div class="zone-meta">Priority: High | Recurring Engagement Driver</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div class="grid-2">
+                    <div class="placeholder medium">
+                        <div>
+                            <h3 style="color: #000; margin-bottom: 10px;">Weekly Torah Portion</h3>
+                            <p style="font-size: 12px;">Vayechi - "And he lived"</p>
+                        </div>
+                    </div>
+                    <div class="placeholder medium">
+                        <div>
+                            <h3 style="color: #000; margin-bottom: 10px;">Astrological Forecast</h3>
+                            <p style="font-size: 12px;">Capricorn Season</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 7: Top 5 This Week -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 7: Top 5 This Week</div>
+                    <div class="zone-meta">Priority: Medium | Engagement Feature</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <h3 style="margin-bottom: 20px; font-size: 16px;">Most Popular Content</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="placeholder small">1</div>
+                        <div class="card-title">Content Title</div>
+                        <div class="card-text">Category | Teacher Name</div>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder small">2</div>
+                        <div class="card-title">Content Title</div>
+                        <div class="card-text">Category | Teacher Name</div>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder small">3</div>
+                        <div class="card-title">Content Title</div>
+                        <div class="card-text">Category | Teacher Name</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 8: Start Here (Beginners) -->
+        <div class="zone visible" data-tiers="free">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 8: Start Here (Beginners)</div>
+                    <div class="zone-meta">Priority: CRITICAL | Addresses #1 Search + #10 Support Issue</div>
+                </div>
+                <div class="tier-indicator free">FREE / NEW</div>
+            </div>
+            <div class="zone-content">
+                <div style="padding: 30px; border: 2px solid #000; text-align: center;">
+                    <h2 style="margin-bottom: 15px; font-size: 20px;">New to Kabbalah?</h2>
+                    <p style="margin-bottom: 20px; font-size: 14px;">Start your journey with Kabbalah 1, 2, 3</p>
+                    <div class="grid-3" style="margin: 30px 0;">
+                        <div class="card">
+                            <div class="placeholder medium">1</div>
+                            <div class="card-title">Kabbalah 1</div>
+                            <div class="card-text">Foundation principles</div>
+                        </div>
+                        <div class="card">
+                            <div class="placeholder medium">2</div>
+                            <div class="card-title">Kabbalah 2</div>
+                            <div class="card-text">Deeper wisdom</div>
+                        </div>
+                        <div class="card">
+                            <div class="placeholder medium">3</div>
+                            <div class="card-title">Kabbalah 3</div>
+                            <div class="card-text">Advanced concepts</div>
+                        </div>
+                    </div>
+                    <button class="btn">Start Your Journey</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 9: Upgrade Education (Free/Community) -->
+        <div class="zone" data-tiers="free,community">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 9: Upgrade Education</div>
+                    <div class="zone-meta">Priority: High | Conversion Focused</div>
+                </div>
+                <div class="tier-indicator community">FREE/COMMUNITY</div>
+            </div>
+            <div class="zone-content">
+                <div style="padding: 30px; border: 3px solid #000; background: #f5f5f5;">
+                    <h2 style="margin-bottom: 15px; font-size: 18px;">Unlock Premium Content</h2>
+                    <p style="margin-bottom: 20px; font-size: 13px;">Get access to exclusive live streams, advanced courses, and personal guidance</p>
+                    <div class="grid-2" style="margin: 20px 0;">
+                        <div class="card">
+                            <div class="card-title">✓ 1000+ Hours of Content</div>
+                            <div class="card-text">On-demand courses and lessons</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">✓ Live Streams Access</div>
+                            <div class="card-text">All Shabbat and special events</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">✓ Course Discounts</div>
+                            <div class="card-text">Save on in-person classes</div>
+                        </div>
+                        <div class="card">
+                            <div class="card-title">✓ Community Gatherings</div>
+                            <div class="card-text">Connect with others online</div>
+                        </div>
+                    </div>
+                    <button class="btn">Upgrade to Premium - $42/month</button>
+                    <button class="btn btn-outline">Compare Plans</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 10: Upcoming Events & Classes -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 10: Upcoming Events & Classes</div>
+                    <div class="zone-meta">Priority: High | Personalized by Location</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <h3 style="margin-bottom: 20px; font-size: 16px;">Near You: [Location]</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="placeholder medium">Event Image</div>
+                        <div class="card-title">Event Title</div>
+                        <div class="card-text">Date | Location<br>Category</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">Register</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Event Image</div>
+                        <div class="card-title">Event Title</div>
+                        <div class="card-text">Date | Location<br>Category</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">Register</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Event Image</div>
+                        <div class="card-title">Event Title</div>
+                        <div class="card-text">Date | Location<br>Category</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">Register</button>
+                    </div>
+                </div>
+                <button class="btn btn-outline">View All Events →</button>
+            </div>
+        </div>
+
+        <!-- ZONE 11: Featured Teachers -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 11: Featured Teachers</div>
+                    <div class="zone-meta">Priority: Medium | Teacher Discovery</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="placeholder medium">Teacher Photo</div>
+                        <div class="card-title">Michael Berg</div>
+                        <div class="card-text">Spiritual Leader</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">View Classes</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Teacher Photo</div>
+                        <div class="card-title">Monica Berg</div>
+                        <div class="card-text">Senior Instructor</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">View Classes</button>
+                    </div>
+                    <div class="card">
+                        <div class="placeholder medium">Teacher Photo</div>
+                        <div class="card-title">Eitan Yardeni</div>
+                        <div class="card-text">Astrology Teacher</div>
+                        <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">View Classes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 12: Newsletter Signup -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 12: Newsletter Signup</div>
+                    <div class="zone-meta">Priority: Medium | Email Capture</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div style="padding: 30px; border: 2px solid #000; text-align: center;">
+                    <h3 style="margin-bottom: 10px; font-size: 16px;">Stay Connected</h3>
+                    <p style="margin-bottom: 20px; font-size: 13px; color: #333;">Get weekly wisdom, forecasts, and updates</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; max-width: 500px; margin: 0 auto;">
+                        <input type="email" placeholder="Enter your email" style="flex: 1; padding: 12px; border: 2px solid #000; font-size: 12px;">
+                        <button class="btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 13: Quick Links -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 13: Quick Links</div>
+                    <div class="zone-meta">Priority: Medium | Personalized by Tier</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">Browse by Topic</div>
+                        <div class="card-text">Love, Prosperity, Well-being, Astrology</div>
+                        <button class="btn btn-outline" style="margin-top: 10px;">Explore Topics →</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Class Recordings</div>
+                        <div class="card-text">Catch up on classes you missed</div>
+                        <button class="btn btn-outline" style="margin-top: 10px;">View Archive →</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Personal Guidance</div>
+                        <div class="card-text">Book a session with an instructor</div>
+                        <button class="btn btn-outline" style="margin-top: 10px;">Learn More →</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Download Our App</div>
+                        <div class="card-text">Access content on the go</div>
+                        <button class="btn btn-outline" style="margin-top: 10px;">Get the App →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 14: Footer Pre-content -->
+        <div class="zone visible" data-tiers="free,community,premium">
+            <div class="zone-header">
+                <div>
+                    <div class="zone-title">ZONE 14: About / Mission Statement</div>
+                    <div class="zone-meta">Priority: Low | Brand Building</div>
+                </div>
+                <div class="tier-indicator">ALL TIERS</div>
+            </div>
+            <div class="zone-content">
+                <div style="text-align: center; padding: 40px 60px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px;">What is Kabbalah?</h2>
+                    <p style="max-width: 700px; margin: 0 auto; font-size: 14px; line-height: 1.8; color: #333;">
+                        Think of Kabbalah master classes as an instruction manual for life – a set of universal 
+                        spiritual principles and tools that can facilitate a deeper connection to your unique purpose 
+                        and gifts. Empowering you to find more love, joy, unending happiness, and soul-connection 
+                        with your truest self.
+                    </p>
+                    <button class="btn" style="margin-top: 30px;">Learn More About Kabbalah</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Kabbalah Centre</h4>
+                <a href="#">About Us</a>
+                <a href="#">Our Teachers</a>
+                <a href="#">Locations</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Learn</h4>
+                <a href="#">Courses</a>
+                <a href="#">Topics</a>
+                <a href="#">Events & Classes</a>
+                <a href="#">Live Streams</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Membership</a>
+                <a href="#">Donate</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; font-size: 11px;">
+            © 2025 The Kabbalah Centre. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Tier toggle functionality
+        const tierButtons = document.querySelectorAll('.tier-btn');
+        const zones = document.querySelectorAll('.zone');
+        const navFree = document.getElementById('nav-free');
+        const navCommunity = document.getElementById('nav-community');
+        const navPremium = document.getElementById('nav-premium');
+        const hamburger = document.querySelector('.hamburger');
+        const allNavs = document.querySelectorAll('.tier-nav');
+
+        // Function to switch navigation
+        function switchNav(tier) {
+            // Hide all navs
+            allNavs.forEach(nav => {
+                nav.style.display = 'none';
+                nav.classList.remove('active');
+            });
+
+            // Show selected tier nav
+            if (tier === 'free') {
+                navFree.style.display = 'flex';
+            } else if (tier === 'community') {
+                navCommunity.style.display = 'flex';
+            } else if (tier === 'premium') {
+                navPremium.style.display = 'flex';
+            }
+        }
+
+        tierButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                tierButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Get selected tier
+                const selectedTier = button.dataset.tier;
+
+                // Switch navigation
+                switchNav(selectedTier);
+
+                // Show/hide zones based on tier
+                zones.forEach(zone => {
+                    const zoneTiers = zone.dataset.tiers.split(',');
+                    if (zoneTiers.includes(selectedTier)) {
+                        zone.classList.add('visible');
+                    } else {
+                        zone.classList.remove('visible');
+                    }
+                });
+            });
+        });
+
+        // Hamburger menu functionality
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            
+            // Toggle the currently visible nav
+            allNavs.forEach(nav => {
+                if (nav.style.display === 'flex') {
+                    nav.classList.toggle('active');
+                }
+            });
+        });
+
+        // Close menu when clicking on a link
+        allNavs.forEach(nav => {
+            const links = nav.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                });
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                hamburger.classList.remove('active');
+                allNavs.forEach(nav => nav.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+</html>
