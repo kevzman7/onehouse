@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0072)file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kabbalah Centre - Homepage (Logged Out)</title>
+    <title>Kabbalah Centre - Homepage Prototype (Low-Fi) v2</title>
     <style>
         * {
             margin: 0;
@@ -199,7 +199,43 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        
+        /* Tier Toggle */
+        .tier-toggle {
+            position: fixed;
+            top: 80px;
+            right: 40px;
+            background: #000000;
+            color: #ffffff;
+            padding: 20px;
+            border: 2px solid #000000;
+            z-index: 1000;
+        }
+
+        .tier-toggle h3 {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .tier-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tier-btn {
+            padding: 10px 15px;
+            border: 2px solid #ffffff;
+            background: transparent;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .tier-btn.active {
+            background: #ffffff;
+            color: #000000;
+        }
 
         /* Container */
         .container {
@@ -515,8 +551,19 @@
     </style>
 </head>
 <body>
-        <!-- Header - LOGGED OUT -->
-    <header id="header-logged-out">
+    <!-- Tier Toggle Control -->
+    <div class="tier-toggle">
+        <h3>VIEW AS:</h3>
+        <div class="tier-buttons">
+            <button class="tier-btn active" data-tier="logged-out">LOGGED OUT</button>
+            <button class="tier-btn" data-tier="free">FREE (Signed In)</button>
+            <button class="tier-btn" data-tier="community">LITE ($11/mo)</button>
+            <button class="tier-btn" data-tier="premium">PREMIUM ($42/mo)</button>
+        </div>
+    </div>
+
+    <!-- Header - LOGGED OUT -->
+    <header id="header-logged-out" style="display: flex;">
         <div class="header-left">
             <div class="logo">Kabbalah Centre</div>
             <div class="header-indicators">
@@ -547,27 +594,27 @@
             <div class="nav-dropdown">
                 Get Started <span class="dropdown-arrow">▼</span>
                 <div class="dropdown-menu">
-                    <a href="#">What is Kabbalah</a>
-                    <a href="#">Start Here</a>
-                    <a href="#">Kabbalah 1, 2, 3</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">What is Kabbalah</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Start Here</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Kabbalah 1, 2, 3</a>
                 </div>
             </div>
             <div class="nav-dropdown">
                 About Kabbalah <span class="dropdown-arrow">▼</span>
                 <div class="dropdown-menu">
-                    <a href="#">Locations</a>
-                    <a href="#">Shop &#8599;</a>
-                    <a href="#">The Zohar &#8599;</a>
-                    <a href="#">Our Sites</a>
-                    <a href="#">FAQ</a>
-                    <a href="#">Scholarship</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Locations</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Shop ↗</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">The Zohar ↗</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Our Sites</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">FAQ</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Scholarship</a>
                 </div>
             </div>
-            <a href="#">Live Streams</a>
-            <a href="#">Guidance</a>
-            <a href="#">Membership</a>
-            <a href="#">Donate</a>
-            <a href="#" class="btn-login">Log-in / Sign up</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Live Streams</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Guidance</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Membership</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Donate</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#" class="btn-login">Log-in / Sign up</a>
         </nav>
     </header>
 
@@ -600,34 +647,34 @@
 
         <!-- SIGNED IN Navigation -->
         <nav id="nav-signed-in" class="tier-nav">
-            <a href="#">My Library</a>
-            <a href="#">Live Streams</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">My Library</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Live Streams</a>
             <div class="nav-dropdown">
-                Topics & Events <span class="dropdown-arrow">▼</span>
+                Topics &amp; Events <span class="dropdown-arrow">▼</span>
                 <div class="dropdown-menu">
-                    <a href="#">Topics</a>
-                    <a href="#">Events & Classes</a>
-                    <a href="#">Teachers</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Topics</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Events &amp; Classes</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Teachers</a>
                 </div>
             </div>
             <div class="nav-dropdown">
                 About Kabbalah <span class="dropdown-arrow">▼</span>
                 <div class="dropdown-menu">
-                    <a href="#">Locations</a>
-                    <a href="#">Shop &#8599;</a>
-                    <a href="#">The Zohar &#8599;</a>
-                    <a href="#">Our Sites</a>
-                    <a href="#">FAQ</a>
-                    <a href="#">Scholarship</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Locations</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Shop ↗</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">The Zohar ↗</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Our Sites</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">FAQ</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Scholarship</a>
                 </div>
             </div>
-            <a href="#">Guidance</a>
-            <a href="#">Donate</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Guidance</a>
+            <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Donate</a>
             <div class="nav-dropdown">
                 My Account <span class="dropdown-arrow">▼</span>
                 <div class="dropdown-menu">
-                    <a href="#">Profile</a>
-                    <a href="#">Membership</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Profile</a>
+                    <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Membership</a>
                 </div>
             </div>
         </nav>
@@ -707,7 +754,7 @@
                                 <p style="font-size: 12px; color: #666;">Continue where you left off</p>
                             </div>
                             <div style="font-size: 11px; color: #666;">
-                                No live streams right now &bull; <a href="#" style="color: #000;">View Schedule</a>
+                                No live streams right now • <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#" style="color: #000;">View Schedule</a>
                             </div>
                         </div>
                         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: center;">
@@ -724,7 +771,7 @@
                                 <div style="font-size: 11px; color: #666; margin-bottom: 5px;">CONTINUE WATCHING</div>
                                 <h3 style="font-size: 18px; margin-bottom: 8px;">Kabbalah 1: Week 4</h3>
                                 <p style="font-size: 13px; color: #333; margin-bottom: 5px;">The Power of Certainty</p>
-                                <p style="font-size: 12px; color: #666; margin-bottom: 20px;">65% complete &bull; 22 min remaining</p>
+                                <p style="font-size: 12px; color: #666; margin-bottom: 20px;">65% complete • 22 min remaining</p>
                                 <button class="btn" style="width: 100%;">Resume Course</button>
                                 <button class="btn btn-outline" style="width: 100%; margin-top: 10px;">Browse Library</button>
                             </div>
@@ -735,7 +782,7 @@
                 <!-- Toggle for prototype demonstration -->
                 <div style="margin-top: 15px; padding: 15px; background: #e5e5e5; border: 1px solid #999;">
                     <div style="font-size: 11px; font-weight: bold; margin-bottom: 10px;">PROTOTYPE TOGGLE: Hero State</div>
-                    <button class="hero-toggle-btn" data-state="live" style="padding: 8px 16px; border: 2px solid #000; background: #000; color: #fff; cursor: pointer; font-size: 11px; margin-right: 10px;">Live Now</button>
+                    <button class="hero-toggle-btn active" data-state="live" style="padding: 8px 16px; border: 2px solid #000; background: #000; color: #fff; cursor: pointer; font-size: 11px; margin-right: 10px;">Live Now</button>
                     <button class="hero-toggle-btn" data-state="resume" style="padding: 8px 16px; border: 2px solid #000; background: #fff; color: #000; cursor: pointer; font-size: 11px;">Resume Content</button>
                 </div>
             </div>
@@ -900,7 +947,7 @@
             <div class="zone-header">
                 <div>
                     <div class="zone-title">ZONE 5: My Library</div>
-                    <div class="zone-meta">Priority: CRITICAL | Lite & Premium | Addresses #1 Support Issue</div>
+                    <div class="zone-meta">Priority: CRITICAL | Lite &amp; Premium | Addresses #1 Support Issue</div>
                     <div class="zone-goal">Goal: Provide fast access to purchased, saved, or in-progress content.</div>
                 </div>
                 <div class="tier-indicator community">LITE+</div>
@@ -927,7 +974,7 @@
                         <button class="btn" style="margin-top: 10px; width: 100%;">Start</button>
                     </div>
                 </div>
-                <button class="btn btn-outline">View Full Library &rarr;</button>
+                <button class="btn btn-outline">View Full Library →</button>
             </div>
         </div>
 
@@ -945,7 +992,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h3 style="font-size: 16px;">Your Classes</h3>
                     <div style="font-size: 12px; color: #666;">
-                        Showing classes near: Chicago, IL &bull; <a href="#" style="color: #000;">Change</a>
+                        Showing classes near: Chicago, IL • <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#" style="color: #000;">Change</a>
                     </div>
                 </div>
                 <div class="grid-3">
@@ -959,8 +1006,8 @@
                         <div class="card-text">with Eitan Yardeni</div>
                         <div style="margin: 15px 0; padding: 12px; background: #e5e5e5; border: 1px solid #999;">
                             <div style="font-size: 11px; font-weight: bold; color: #000; margin-bottom: 5px;">NEXT LIVE SESSION</div>
-                            <div style="font-size: 13px;">Tue, Dec 24 &bull; 7:00 PM CT</div>
-                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Online &bull; 1hr</div>
+                            <div style="font-size: 13px;">Tue, Dec 24 • 7:00 PM CT</div>
+                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Online • 1hr</div>
                         </div>
                         <button class="btn" style="width: 100%;">Register for Live</button>
                         <button class="btn btn-outline" style="width: 100%; margin-top: 8px;">Past Recordings (12)</button>
@@ -976,8 +1023,8 @@
                         <div class="card-text">Foundations of Kabbalah</div>
                         <div style="margin: 15px 0; padding: 12px; background: #e5e5e5; border: 1px solid #999;">
                             <div style="font-size: 11px; font-weight: bold; color: #000; margin-bottom: 5px;">NEXT LIVE SESSION</div>
-                            <div style="font-size: 13px;">Sat, Dec 28 &bull; 10:00 AM CT</div>
-                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Chicago Centre &bull; 2hr</div>
+                            <div style="font-size: 13px;">Sat, Dec 28 • 10:00 AM CT</div>
+                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Chicago Centre • 2hr</div>
                         </div>
                         <button class="btn" style="width: 100%;">Register for Live</button>
                         <button class="btn btn-outline" style="width: 100%; margin-top: 8px;">Past Recordings (8)</button>
@@ -993,8 +1040,8 @@
                         <div class="card-text">with Michael Berg</div>
                         <div style="margin: 15px 0; padding: 12px; background: #e5e5e5; border: 1px solid #999;">
                             <div style="font-size: 11px; font-weight: bold; color: #000; margin-bottom: 5px;">NEXT LIVE SESSION</div>
-                            <div style="font-size: 13px;">Fri, Dec 27 &bull; 6:30 PM CT</div>
-                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Online + In-Person &bull; 1.5hr</div>
+                            <div style="font-size: 13px;">Fri, Dec 27 • 6:30 PM CT</div>
+                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Online + In-Person • 1.5hr</div>
                         </div>
                         <button class="btn" style="width: 100%;">Register for Live</button>
                         <button class="btn btn-outline" style="width: 100%; margin-top: 8px;">Past Recordings (52)</button>
@@ -1013,8 +1060,8 @@
                         <div class="card-text">Transforming Your Finances</div>
                         <div style="margin: 15px 0; padding: 12px; background: #e5e5e5; border: 1px solid #999;">
                             <div style="font-size: 11px; font-weight: bold; color: #000; margin-bottom: 5px;">NEXT LIVE SESSION</div>
-                            <div style="font-size: 13px;">Wed, Jan 8 &bull; 8:00 PM CT</div>
-                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Online &bull; 1hr</div>
+                            <div style="font-size: 13px;">Wed, Jan 8 • 8:00 PM CT</div>
+                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Online • 1hr</div>
                         </div>
                         <button class="btn" style="width: 100%;">Register for Live</button>
                         <button class="btn btn-outline" style="width: 100%; margin-top: 8px;">Past Recordings (4)</button>
@@ -1030,8 +1077,8 @@
                         <div class="card-text">Monthly Cosmic Reset</div>
                         <div style="margin: 15px 0; padding: 12px; background: #e5e5e5; border: 1px solid #999;">
                             <div style="font-size: 11px; font-weight: bold; color: #000; margin-bottom: 5px;">NEXT LIVE SESSION</div>
-                            <div style="font-size: 13px;">Sun, Dec 29 &bull; 7:00 PM CT</div>
-                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Chicago Centre &bull; 1hr</div>
+                            <div style="font-size: 13px;">Sun, Dec 29 • 7:00 PM CT</div>
+                            <div style="font-size: 11px; color: #666; margin-top: 3px;">Chicago Centre • 1hr</div>
                         </div>
                         <button class="btn" style="width: 100%;">Register for Live</button>
                         <button class="btn btn-outline" style="width: 100%; margin-top: 8px;">Past Recordings (24)</button>
@@ -1039,7 +1086,7 @@
 
                     <!-- Browse All Card -->
                     <div class="card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: #e5e5e5;">
-                        <div style="font-size: 36px; margin-bottom: 15px;">&rarr;</div>
+                        <div style="font-size: 36px; margin-bottom: 15px;">→</div>
                         <div class="card-title">Browse All Classes</div>
                         <div class="card-text" style="margin-bottom: 15px;">Explore 50+ class series by topic, teacher, or format</div>
                         <button class="btn btn-outline">View All Classes</button>
@@ -1107,7 +1154,7 @@
         <div class="zone visible" data-tiers="logged-out,free,community,premium">
             <div class="zone-header">
                 <div>
-                    <div class="zone-title">ZONE 8: Community & Connection (Roots)</div>
+                    <div class="zone-title">ZONE 8: Community &amp; Connection (Roots)</div>
                     <div class="zone-meta">Priority: Medium | Community Engagement</div>
                     <div class="zone-goal">Goal: Encourage community interaction and participation. Provide links to external sites (Roots).</div>
                 </div>
@@ -1121,9 +1168,9 @@
                         <button class="btn">View Upcoming Gatherings</button>
                     </div>
                     <div style="padding: 30px; border: 2px solid #000;">
-                        <h3 style="margin-bottom: 15px; font-size: 16px;">ROOTS Youth Program &#8599;</h3>
+                        <h3 style="margin-bottom: 15px; font-size: 16px;">ROOTS Youth Program ↗</h3>
                         <p style="font-size: 13px; margin-bottom: 20px;">Kabbalah education and community for young adults</p>
-                        <button class="btn btn-outline">Visit ROOTS Site &rarr;</button>
+                        <button class="btn btn-outline">Visit ROOTS Site →</button>
                     </div>
                 </div>
             </div>
@@ -1291,7 +1338,7 @@
                         <button class="btn btn-outline" style="margin-top: 10px; width: 100%;">View</button>
                     </div>
                 </div>
-                <button class="btn btn-outline">Visit Shop &#8599;</button>
+                <button class="btn btn-outline">Visit Shop ↗</button>
             </div>
         </div>
 
@@ -1299,8 +1346,8 @@
         <div class="zone visible" data-tiers="logged-out,free,community,premium">
             <div class="zone-header">
                 <div>
-                    <div class="zone-title">ZONE 12: Support & Giving</div>
-                    <div class="zone-meta">Priority: Medium | Donations & Volunteering</div>
+                    <div class="zone-title">ZONE 12: Support &amp; Giving</div>
+                    <div class="zone-meta">Priority: Medium | Donations &amp; Volunteering</div>
                     <div class="zone-goal">Goal: Provide accessible options for donations and volunteering.</div>
                 </div>
                 <div class="tier-indicator">ALL TIERS</div>
@@ -1352,39 +1399,39 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Kabbalah Centre</h4>
-                <a href="#">About Us</a>
-                <a href="#">Our Teachers</a>
-                <a href="#">Locations</a>
-                <a href="#">Contact</a>
-                <a href="#">FAQ</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">About Us</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Our Teachers</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Locations</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Contact</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">FAQ</a>
             </div>
             <div class="footer-section">
                 <h4>Learn</h4>
-                <a href="#">Courses</a>
-                <a href="#">Topics</a>
-                <a href="#">Events & Classes</a>
-                <a href="#">Live Streams</a>
-                <a href="#">Class Recordings</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Courses</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Topics</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Events &amp; Classes</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Live Streams</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Class Recordings</a>
             </div>
             <div class="footer-section">
                 <h4>Our Sites</h4>
-                <a href="#">Shop &#8599;</a>
-                <a href="#">The Zohar &#8599;</a>
-                <a href="#">Guidance &#8599;</a>
-                <a href="#">ROOTS &#8599;</a>
-                <a href="#">Giving &#8599;</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Shop ↗</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">The Zohar ↗</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Guidance ↗</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">ROOTS ↗</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Giving ↗</a>
             </div>
             <div class="footer-section">
                 <h4>Support</h4>
-                <a href="#">Help Center</a>
-                <a href="#">Membership</a>
-                <a href="#">Donate</a>
-                <a href="#">Scholarship Fund</a>
-                <a href="#">Terms & Privacy</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Help Center</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Membership</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Donate</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Scholarship Fund</a>
+                <a href="file:///Users/kevinzimmerman/Downloads/homepage-prototype-lofi-v3_3.html#">Terms &amp; Privacy</a>
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; font-size: 11px;">
-            &copy; 2025 The Kabbalah Centre. All rights reserved.
+            © 2025 The Kabbalah Centre. All rights reserved.
         </div>
     </footer>
 
@@ -1487,5 +1534,6 @@
         // Initialize first hero toggle button as active
         document.querySelector('.hero-toggle-btn[data-state="live"]')?.classList.add('active');
     </script>
-</body>
-</html>
+
+
+</body></html>
